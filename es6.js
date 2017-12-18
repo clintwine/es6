@@ -218,6 +218,126 @@ for( let i = 0; i < 10; i++) {
 }
 
 
+/*
+*FOR IN prints the INDEX of an array
+*FOR OF prints the Values of the array
+*
+*/
+
+let names = ["james", "Jon", "paul"];
+
+//FOR IN
+for( let index in names ) {
+  console.log(
+    `index: ${index}
+    values: ${names[index]}`);
+    
+}
+
+//FOR OF
+for( let i of names ) {
+  console.log(i);
+};
+
+//objects
+let family = {"fam" : "Ago"}
+let me = {"name" : "chi"}
+//To make family a protype of the "me" object we do
+
+Object.setPrototypeOf(me, family)  //Or let chi = Object.create(family);
+
+//To know what prototype an object is made from we do Object.getPrototypeOf(me)
+Object.getPrototypeOf(me);
+
+//We can check if family is the protype of me by doing family.isPrototypeOf(me); returns true/false
+family.isPrototypeOf(me); 
+
+//we can check if an object has a certain property
+me.hasOwnProperty('name'); //true
+me.hasOwnProperty('fam'); //false as this is on its prototype
+
+//Classes
+//the constructor function runs everytime a new instance is created using the new keyword
+//the new operator creates the Object
+
+class Widget {
+  constructor(name, description, url){  //the constructor function runs everytime the new operator is called
+  
+  }
+  
+  parse() {
+    
+  }
+  
+  render(){
+    //...
+  }
+}
+
+//to use the class to create an object we do
+let WidgetInstance = new Widget('name', 'description', 'url'); 
+
+
+class SponsorWidget extends Widget {
+  constructor(name, description, url){  //the constructor function for SponsorWidget
+    super();  //caused the parent class constructor to be invoked
+    this.name = name;
+  }
+  render(){
+    let parsedName = super.parse(this.name);  //the super here references the data in the parent class
+  }
+}
+
+
+//Modules
+//when importing a class , you have to run the new keyword to get it to create an instance of the class
+
+
+//In flash-message.js file
+/* export default class FlashMessage {
+    // ...
+ }
+*/
+
+/* In app.js File
+import FlashMessage from './flash-message';  
+
+let flash = new FlashMessage("Hello");  // here we create an instance
+flash.renderAlert();
+flash.renderLog();
+
+*/
+
+//Instead of creating the same const = MAX_REPLIES in various functions
+//we can create one file that has all the constants and then import them to various other theFileWhereFellowIs
+
+/* Inthe constant.js file
+const MAX_USERS = 3;
+const MAX_REPLIES = 3;
+export { MAX_USERS, MAX_REPLIES };
+*/
+
+/* in the list-replies.js file 
+import { MAX_REPLIES } from './constants';
+function listReplies(replies = []){
+  if(replies.length > MAX_REPLIES){
+    //...
+  }
+}
+
+*/
+
+/* in the display-watchers.js file 
+import { MAX_USERS } from './constants';
+function displayWatchers(watchers = []){
+  if(watchers.length > MAX_USERS){
+    //...
+  }
+}
+*/
+
+ 
+
 
 
  
