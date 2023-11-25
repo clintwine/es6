@@ -47,6 +47,11 @@ let animals = ['lion', 'monkey', 'birds'];
 let [mufasa, wiseman] = animals;
 console.log(mufasa, wiseman);
 
+//using default value with destructuring
+let fiat, honda;
+[fiat = "60km", honda = "20km"] = ["10km"]
+console.log(fiat, honda); //10km , 20km
+
 let kings = {name: "mufasa" , kingdom: "zambezi", kids: 1 }
 
 
