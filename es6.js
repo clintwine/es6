@@ -1,4 +1,4 @@
-//spread operator -- takes an entry and spreads it
+//spread operator -- takes an iterable like an array or string and expands it
 let a = [30, 40, 50]
 let b = [10, 20, ...a, 60, 70];  //[ 10, 20, 30, 40, 50, 60, 70 ]
 
@@ -23,6 +23,12 @@ function add(...a) {
   
 }
 add(1,2,3,4,5,10);  //25
+
+the rest operator needs to be the last argument 
+function printer(name, ...a){
+  console.log(name);
+  console.log(a);
+}
 //*****************************************************
 
 //Template string 
@@ -33,12 +39,12 @@ let d = `Hello ${myName} you are 20`; //'Hello John you are 20'
 
 //destructuring
 //*****************************************************
-let [thirty, fourty] = a;  //destructuring used to take vaules from a into our new vales
+let [thirty, fourty] = a;  //destructuring used to unpack values from data structures(arrays, objects)
 console.log(thirty) //30
 console.log(fourty) //40
 
 let animals = ['lion', 'monkey', 'birds'];
-let [mufasa, wiseman  ] = animals;
+let [mufasa, wiseman] = animals;
 console.log(mufasa, wiseman);
 
 let kings = {name: "mufasa" , kingdom: "zambezi", kids: 1 }
