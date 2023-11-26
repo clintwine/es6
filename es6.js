@@ -52,8 +52,22 @@ let fiat, honda;
 [fiat = "60km", honda = "20km"] = ["10km"]
 console.log(fiat, honda); //10km , 20km
 
-let kings = {name: "mufasa" , kingdom: "zambezi", kids: 1 }
+// --------------------------------
+// Assigning the rest of an array to a variable
+const [a, ...b] = [1, 2, 3];
+console.log(a); // 1
+console.log(b); // [2, 3]
+// --------------------------------
 
+// ----------------------------------------------------------------
+//we can use functions to return the values for the array
+function f() {
+	return ['lion', 'monkey', 'birds'];
+}
+
+[mufasa, , birdy] = f()  // Here we are returning the values ['lion', 'monkey', 'birds'], Mufasa the gets value lion and birdy gets the value birds
+let kings = {name: "mufasa" , kingdom: "zambezi", kids: 1 }
+// ----------------------------------------------------------------
 
 //  let name = kings.name
 //  let kids = kings.kids
@@ -62,9 +76,50 @@ let kings = {name: "mufasa" , kingdom: "zambezi", kids: 1 }
 let {name, kids} = kings
 console.log(name, kids); // mufasa 1
 
-//if had used let to declare name and kids before, to run we use brackets
-//({name, kids} = kings)
+
+({name, kids} = kings)  //if we had used let to declare name and kids previously, to run this we need to use the brackets
+
+//renaming the variables
+const num = { x: 100, y: 200 };
+const { x: newVar1, y: newVar2 } = num; // here both x and y become undefined and newVar1 ==> 100 , newVar2 ==> 200
 //*****************************************************
+
+// -------------------------------
+// Example 2
+let options = {
+  title: "My menu",
+  items: ["Item1", "Item2"],
+};
+
+// The (w) & (h) property is essentially renaming the (width) & (height) props
+
+function showMenu({
+  title = "Untitled", //creating a default value
+  width: w = 100, // width goes to w
+  height: h = 200, // height goes to h
+  items: [item1, item2], // items first element goes to item1, second to item2
+}) {
+  console.log(`${title} ${w} ${h}`); // My Menu 100 200
+  console.log(item1); // Item1
+  console.log(item2); // Item2
+}
+
+showMenu(options);
+// -------------------------------
+
+
+//Nested destructuring
+const songs = [
+  { name: "Lucky You", singer: "Joyner", duration: 4.34 },
+  { name: "Just Like You", singer: "NF", duration: 3.23 },
+  { name: "Humble", singer: "Kendrick Lamar", duration: 2.33 },
+  { name: "Old Town Road", singer: "Lil Nas X", duration: 1.43 },
+  { name: "Cold Shoulder", singer: "Central Cee", duration: 5.23 },
+];
+
+// const [, , { singer }] = songs;
+const [, , { singer: s }] = songs;
+console.log(s);
 
 //arrow functions are anonymous functions
 //Map, filter, reduce
